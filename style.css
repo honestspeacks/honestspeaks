@@ -1,1 +1,360 @@
+/* ===== Honest Speaks — Estilos base ===== */
 
+:root {
+  --paper: #F6F4EF;
+  --paper-dim: #EDE9DF;
+  --ink: #1C1B19;
+  --ink-soft: #55524A;
+  --accent: #14665A;
+  --accent-dark: #0D4A41;
+  --si: #3F7D4F;
+  --si-bg: #E4EFE3;
+  --no: #B23B32;
+  --no-bg: #F5E4E1;
+  --border: #DEDACE;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Archivo", -apple-system, sans-serif;
+
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Header ===== */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.logo span { color: var(--accent); }
+
+.main-nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+
+.hero {
+  padding: 56px 0 48px;
+}
+
+.hero .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.08;
+  margin: 0 0 18px;
+  max-width: 14ch;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 0 26px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* Sello de veredicto — la firma visual de la marca */
+
+.stamp {
+  --stamp-color: var(--si);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2.5px solid var(--stamp-color);
+  color: var(--stamp-color);
+  border-radius: 999px;
+  padding: 7px 16px 7px 12px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  transform: rotate(-3deg);
+  width: fit-content;
+}
+
+.stamp.no { --stamp-color: var(--no); }
+
+.stamp svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.hero-stamp { margin-bottom: 4px; }
+
+/* ===== Secciones genéricas ===== */
+
+section { padding: 48px 0; }
+
+.section-head {
+  margin-bottom: 28px;
+  max-width: 52ch;
+}
+
+.section-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 10px;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ===== Cómo elegimos ===== */
+
+.criteria-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .criteria-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.criteria-item {
+  border-top: 3px solid var(--accent);
+  padding-top: 14px;
+}
+
+.criteria-item h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+
+.criteria-item p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ===== Tarjetas de reseña ===== */
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 720px) {
+  .review-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 18px;
+  position: relative;
+}
+
+.review-card .stamp {
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  background: var(--paper);
+  font-size: 0.7rem;
+  padding: 5px 12px 5px 10px;
+}
+
+.review-card .platform {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+
+.review-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 4px 0 10px;
+}
+
+.review-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+.review-card a.card-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.review-card a.card-link:hover { text-decoration: underline; }
+
+/* ===== CTA de cursos ===== */
+
+.cta-block {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 40px 0;
+}
+
+.cta-block .wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 720px) {
+  .cta-block .wrap {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cta-block h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  margin: 0 0 6px;
+}
+
+.cta-block p {
+  color: #C9C6BC;
+  margin: 0;
+  max-width: 44ch;
+}
+
+.cta-block .btn-primary {
+  flex-shrink: 0;
+}
+
+/* ===== Footer ===== */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.site-footer .disclosure {
+  max-width: 62ch;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a { text-decoration: none; color: var(--ink-soft); }
+.footer-links a:hover { color: var(--ink); }
+
+/* ===== Utilidades de accesibilidad ===== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
